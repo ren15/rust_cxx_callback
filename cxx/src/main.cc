@@ -2,21 +2,28 @@
 
 class MySignal : public SignalGenerator {
 
-    public:
-    virtual int on_data(int data) override
-    {
-        std::cout << "on_data called with data: " << data << std::endl;
-        return 0;
-    }
+public:
+  virtual int init() override {
+    std::cout << "MySignal Init Called" << std::endl;
+    return 0;
+  }
+  virtual int on_data(int data) override {
+    std::cout << "on_data called with data: " << data << std::endl;
+    return 0;
+  }
 };
 
+int main() {
 
-int main(){
+  auto sig = MySignal();
+  sig.init();
 
-    auto sig = MySignal();
-    sig.init();
+  sig.start(10);
 
-    sig.start(10);
+  auto sig1 = SignalGenerator();
+  sig1.init();
 
-    return 0;
+  sig1.start(10);
+
+  return 0;
 }

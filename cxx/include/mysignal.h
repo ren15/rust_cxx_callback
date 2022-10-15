@@ -5,8 +5,8 @@ public:
   SignalGenerator(){};
   ~SignalGenerator(){};
 
-  int init() {
-    std::cout << "Init Called" << std::endl;
+  virtual int init() {
+    std::cout << "SignalGenerator Init Called" << std::endl;
     return 0;
   }
 
@@ -18,5 +18,5 @@ public:
     return 0;
   }
 
-  virtual int on_data(int data) = 0;
+  virtual int on_data(int data) { return 0; };
 };
