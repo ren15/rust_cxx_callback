@@ -18,3 +18,6 @@ c: cxx_so
 run_c: c
 	LD_LIBRARY_PATH=${PWD} ./c_main
 
+rust_run:
+	cd rust_caller && LD_LIBRARY_PATH=.. cargo r
+

@@ -30,3 +30,7 @@ jobs:
       - name: c
         run: |
           make c && make run_c
+
+      - name: rust
+        run: |
+          make rust_run
