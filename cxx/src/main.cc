@@ -1,4 +1,4 @@
-#include "mysignal.h"
+#include "mysignal.hpp"
 
 class MySignal : public SignalGenerator {
 

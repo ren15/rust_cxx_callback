@@ -20,3 +20,6 @@ public:
 
   virtual int on_data(int data) { return 0; };
 };
+
+int create_signal_generator();
+
