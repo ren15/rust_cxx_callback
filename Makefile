@@ -19,5 +19,5 @@ run_c: c
 	LD_LIBRARY_PATH=${PWD} ./c_main
 
 rust_run:
-	cd rust_caller && LD_LIBRARY_PATH=.. cargo r
+	cd rust_caller && cargo clean && LD_LIBRARY_PATH=.. cargo r
 
