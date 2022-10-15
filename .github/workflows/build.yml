@@ -26,7 +26,7 @@ jobs:
 
       - name: c
         run: |
-          docker run local bash -c "make c && make run_c"
+          docker run local bash -c "make cxx_so && make c && make run_c"
 
       - name: rust
         run: |
