@@ -15,7 +15,9 @@ jobs:
 
       - name: Sys Info
         run: |
-          apt update && apt install g++
+          apt-get update && apt-get install -y \
+            g++ \
+            make
 
       - name: cxx
         run: |
