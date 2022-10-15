@@ -2,9 +2,12 @@
 
 #include <mysignal_c.h>
 
+int on_data_in_c(int data){
+    printf("ondata from c: %d\n",data);
+}
 
 int main(){
-    printf("Hello World\n");
-    create_signal_generator();
-    create_ondata();
+    //create_signal_generator();
+    //create_ondata();
+    register_callback(on_data_in_c);
 }
