@@ -1,17 +1,6 @@
 #include "mysignal.hpp"
 
-class MySignal : public SignalGenerator {
 
-public:
-  virtual int init() override {
-    std::cout << "MySignal Init Called" << std::endl;
-    return 0;
-  }
-  virtual int on_data(int data) override {
-    std::cout << "on_data called with data: " << data << std::endl;
-    return 0;
-  }
-};
 
 int main() {
 

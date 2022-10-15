@@ -25,4 +25,8 @@ jobs:
 
       - name: cxx
         run: |
-          make cxx && make run_cxx
+          make run_cxx
+
+      - name: c
+        run: |
+          make run_c
