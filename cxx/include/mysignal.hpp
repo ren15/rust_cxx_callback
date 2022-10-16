@@ -1,5 +1,9 @@
 #include <iostream>
 
+extern "C" {
+  #include "mysignal_c.h"
+}
+
 class SignalGenerator {
 public:
   SignalGenerator(){};
@@ -21,11 +25,9 @@ public:
   virtual int on_data(int data) { return 0; };
 };
 
-typedef void (*rust_callback)(int32_t);
 
 class MySignal : public SignalGenerator {
   rust_callback cb;
-
 public:
   virtual int init() override {
     std::cout << "MySignal Init Called" << std::endl;
@@ -44,7 +46,3 @@ public:
     return 0;
   }
 };
-
-extern "C" int create_signal_generator();
-extern "C" int create_ondata();
-extern "C" int register_callback(rust_callback callback);

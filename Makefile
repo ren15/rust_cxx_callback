@@ -21,3 +21,8 @@ run_c:
 run_rust:
 	cd rust_caller && cargo clean && LD_LIBRARY_PATH=.. cargo r
 
+run_docker:
+	docker build -t local .
+	docker run local bash -c "make cxx_so && make c && make run_c"
+	docker run local bash -c "make cxx && make run_cxx"
+	docker run local bash -c "make cxx_so && make run_rust"
