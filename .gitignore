@@ -4,5 +4,6 @@ c_main
 libmysignal.so
 Cargo.lock
 build
+cmake-build
 compile_commands.json
 .clangd

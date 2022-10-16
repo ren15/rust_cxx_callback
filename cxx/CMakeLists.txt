@@ -8,12 +8,13 @@ src/main.cc
 src/mysignal.cc
 )
 
-add_library(mysignal
+add_library(mysignal SHARED
 src/mysignal.cc
 )
 
 add_executable(c_main
 src/c_main.c
 )
+
 target_link_libraries(c_main mysignal)
 
