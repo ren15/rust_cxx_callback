@@ -20,14 +20,6 @@ jobs:
         run: |
           docker build -t local .
 
-      - name: cxx
-        run: |
-          docker run local bash -c "make cxx && make run_cxx"
-
-      - name: c
-        run: |
-          docker run local bash -c "make cxx_so && make c && make run_c"
-
       - name: cmake
         run: |
           docker run local bash -c "make cmake_build && make cmake_run"
