@@ -38,9 +38,7 @@ cmake_build:
 	cmake -S cxx -B ${BUILD_DIR} -DCMAKE_EXPORT_COMPILE_COMMANDS=1
 	ln -f -s ${BUILD_DIR}/compile_commands.json ${SOURCE_DIR}/compile_commands.json
 	cmake --build ${BUILD_DIR}
+
 cmake_run:
-	./build/main
-	./build/c_main
-cmake_all:
-	make cmake_build
-	make cmake_run
+	${BUILD_DIR}/main
+	${BUILD_DIR}/c_main
