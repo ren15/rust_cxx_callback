@@ -1,5 +1,9 @@
 .PHONY: $(MAKECMDGOALS)
 
+export REPO_DIR=${PWD}
+export BUILD_DIR=${REPO_DIR}/build
+export SOURCE_DIR=${REPO_DIR}/cxx
+
 help:
 	echo "help"
 
@@ -26,11 +30,15 @@ run_docker:
 	docker run local bash -c "make cxx_so && make c && make run_c"
 	docker run local bash -c "make cxx && make run_cxx"
 	docker run local bash -c "make cxx_so && make run_rust"
+	docker run local bash -c "make cmake_configure && make cmake_build && make cmake_run"
 
 cmake_configure:
 	mkdir -p build
-	cmake -S cxx -B build
+	rm -rf build/*
+	cmake -S cxx -B build -DCMAKE_EXPORT_COMPILE_COMMANDS=1
+	ln -f -s ${BUILD_DIR}/compile_commands.json ${SOURCE_DIR}/compile_commands.json
 cmake_build:
 	cmake --build build
 cmake_run:
-	LD_LIBRARY_PATH=${PWD}/build ./build/main
+	./build/main
+	./build/c_main

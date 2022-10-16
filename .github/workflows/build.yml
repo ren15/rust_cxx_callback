@@ -28,6 +28,10 @@ jobs:
         run: |
           docker run local bash -c "make cxx_so && make c && make run_c"
 
+      - name: cmake
+        run: |
+          docker run local bash -c "make cmake_configure && make cmake_build && make cmake_run"
+
       - name: rust
         run: |
           docker run local bash -c "make cxx_so && make run_rust"
