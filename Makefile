@@ -26,3 +26,11 @@ run_docker:
 	docker run local bash -c "make cxx_so && make c && make run_c"
 	docker run local bash -c "make cxx && make run_cxx"
 	docker run local bash -c "make cxx_so && make run_rust"
+
+cmake_configure:
+	mkdir -p build
+	cmake -S cxx -B build
+cmake_build:
+	cmake --build build
+cmake_run:
+	LD_LIBRARY_PATH=${PWD}/build ./build/main

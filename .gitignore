@@ -3,3 +3,4 @@ main
 c_main
 libmysignal.so
 Cargo.lock
+build
